@@ -6,14 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
       
+        <link rel="canonical" href="https://gprop-docs.vercel.app/contributing/">
       
-        <link rel="prev" href="../algorithms/pathloss/">
+      
+        <link rel="prev" href="../algorithms/ransac/">
       
       
       
@@ -21,15 +23,15 @@
       
       
       <link rel="icon" href="../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Contributing - gprop Documentation</title>
+        <title>Contributors & contributing - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -50,6 +52,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../assets/custom.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -76,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributors" class="md-skip">
+        <a href="#contributors-contributing" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +92,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -109,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              Contributors & contributing
             
           </span>
         </div>
@@ -199,121 +205,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../pipeline/overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -327,12 +218,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -358,7 +245,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -396,26 +283,28 @@
     
     
       
-      
+        
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -431,7 +320,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -444,14 +333,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../pipeline/overview/" class="md-nav__link">
+      <a href="../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -479,7 +368,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -507,7 +396,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -535,7 +424,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -563,7 +452,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -591,7 +480,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -627,25 +516,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -663,8 +705,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -737,34 +779,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../reference/python_deps/" class="md-nav__link">
         
   
@@ -806,23 +820,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -840,8 +858,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -907,6 +925,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -937,7 +983,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -955,7 +1001,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -984,12 +1030,12 @@
   <a href="#project-team" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Team
+        Project team
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Project Team">
+    <nav class="md-nav" aria-label="Project team">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1003,8 +1049,74 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#nick-toutoundjian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nick Toutoundjian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#christopher-chahine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Christopher Chahine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venkata-ramireddy-gaddam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Venkata Ramireddy Gaddam
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute-a-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribute a change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improve-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improve the documentation
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1020,10 +1132,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contact" class="md-nav__link">
+  <a href="#questions-or-corrections" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contact
+        Questions or corrections
       
     </span>
   </a>
@@ -1045,9 +1157,159 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project team
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project team">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alvi-rashid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alvi Rashid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nick-toutoundjian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nick Toutoundjian
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#christopher-chahine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Christopher Chahine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#venkata-ramireddy-gaddam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Venkata Ramireddy Gaddam
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute-a-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contribute a change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coding conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improve-the-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improve the documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acknowledgements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions-or-corrections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions or corrections
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1055,29 +1317,75 @@
 
 
 
-<h1 id="contributors">Contributors</h1>
-<p>This project was developed as part of a research and engineering initiative in 3D urban RF propagation modelling.</p>
-<hr />
-<h2 id="project-team">Project Team</h2>
+<h1 id="contributors-contributing">Contributors &amp; contributing</h1>
+<p>gprop is a research and engineering project for urban RF propagation modelling. This page records the project contributions previously published on this site and explains how to contribute.</p>
+<h2 id="project-team">Project team</h2>
 <h3 id="alvi-rashid">Alvi Rashid</h3>
-<p><strong>Role:</strong> Documentation, Multithreading &amp; Benchmarking<br />
-<strong>Program:</strong> Electrical Engineering, Sophomore</p>
+<p><strong>Contributions:</strong> Documentation, multithreading, and benchmarking.<br />
+<strong>Program recorded in the original documentation:</strong> Electrical Engineering, Sophomore.</p>
 <ul>
-<li>Authored the full project documentation including pipeline flowcharts, file format specifications, algorithm references, and CLI guides — deployed via MkDocs Material to GitHub Pages</li>
-<li>Implemented OpenMP multithreading on the <code>prop</code> heatmap grid loop, achieving a 4.3× speedup at 10 cores compared to the single-threaded baseline (18.4s → 4.1s)</li>
-<li>Designed and ran the benchmarking suite — 20 runs across 1, 2, 4, 8, and 10 cores — capturing min, max, mean, median, stdev, and p95 statistics per configuration</li>
-<li>Built the benchmark reporting pipeline (<code>benchmark.py</code>, <code>plot_histogram.py</code>, <code>plot_cores.py</code>) generating interactive HTML reports with per-core timing analysis and normalised CPU time</li>
+<li>Authored the pipeline guides, flowcharts, file formats, algorithm references, and CLI documentation using MkDocs Material. The documentation is now hosted on Vercel.</li>
+<li>Implemented OpenMP multithreading for the propagation heatmap grid loop.</li>
+<li>Designed a benchmarking suite across 1, 2, 4, 8, and 10 cores, with repeated runs and summary statistics.</li>
+<li>Built reporting tools including <code>benchmark.py</code>, <code>plot_histogram.py</code>, and <code>plot_cores.py</code> for timing analysis and normalized CPU time.</li>
 </ul>
-<hr />
+<p>The original contributor page reported a 4.3× speedup at 10 cores (18.4 s → 4.1 s). This is a historical benchmark from that page, not a new measurement of the current simulator configuration.</p>
+<h3 id="nick-toutoundjian">Nick Toutoundjian</h3>
+<p><strong>Role:</strong> Testing, Documentation &amp; Benchmarking<br />
+<strong>Program:</strong> Computer Engineering, Sophomore</p>
+<ul>
+<li>Assisted with the Deygout diffraction engine and created key functions in C/C++.</li>
+<li>Implemented several unit tests for core processes to ensure proper calculation and desired outputs.</li>
+<li>Structured the backbone of the documentation architecture and supported deployment of MkDocs to GitHub Pages.</li>
+<li>Tested the benchmarking reporting pipeline and comparison results across different CPUs and core counts.</li>
+</ul>
+<h3 id="christopher-chahine">Christopher Chahine</h3>
+<p><strong>Role:</strong> Geographical Data Preprocessing<br />
+<strong>Program:</strong> Electrical Engineering, Junior</p>
+<ul>
+<li>Replaced OpenStreetMap building footprint fetching with Microsoft's GlobalMLBuildingFootprints dataset in <code>fetch.py</code>, using quadkey math to efficiently target only the tiles covering the area of interest.</li>
+<li>Implemented OSM/Microsoft patching logic: OSM is used as the default source due to its accuracy, with Microsoft footprints added only where they do not overlap with existing OSM buildings, using a spatial index for efficient filtering.</li>
+<li>Developed <code>visualize.py</code>, a Matplotlib and Contextily visualization script that generates side-by-side comparison plots of OSM-only, Microsoft-only, and combined building footprints across multiple areas with varying coverage.</li>
+</ul>
+<h3 id="venkata-ramireddy-gaddam">Venkata Ramireddy Gaddam</h3>
+<p><strong>Role:</strong> Drive Test Processing &amp; 3D Geospatial Visualization, New Drive Test Setup<br />
+<strong>Program:</strong> Engineering Sciences Internet of Things</p>
+<ul>
+<li>Developed an end-to-end RF data processing pipeline converting raw drive-test logs into structured datasets (RSRP, SINR, RSRQ, Timestamp) with automated CSV cleaning, merging, and validation.</li>
+<li>Designed and implemented a Gaussian-based 3D heatmap generation engine using Python (NumPy, SciPy), converting sparse drive-test measurements into continuous spatial coverage maps.</li>
+<li>Built a Google Earth visualization pipeline generating KMZ outputs with GroundOverlay heatmaps, ScreenOverlay color legends, and antenna azimuth-based directional overlays.</li>
+<li>Implemented automatic coordinate handling and projection workflows (EPSG:3857 ↔ EPSG:4326), enabling accurate geospatial alignment of RF measurements on real terrain maps.</li>
+<li>Optimized the data preprocessing workflow to handle multi-million-point datasets with structured, memory-efficient CSV parsing and validation.</li>
+<li>Integrated antenna topology modeling (azimuth, height, location) into the visualization layer for realistic transmitter direction representation in 3D space.</li>
+<li>Developed a new portable DriveTest Setup and test-ready scripts.</li>
+<li>Conducted drive tests on FruitBelt and validated the results.</li>
+</ul>
+<h2 id="contribute-a-change">Contribute a change</h2>
+<ol>
+<li>Review the <a href="../pipeline/overview/">pipeline overview</a> and <a href="../reference/build/">build guide</a>.</li>
+<li>Create a feature branch for your change.</li>
+<li>Keep changes focused and include a reproducible command, inputs, and expected results for behavior changes.</li>
+<li>Update the relevant documentation page when changing a command, file format, or default model.</li>
+<li>Submit a pull request to the upstream <code>testing</code> branch, following the repository README.</li>
+</ol>
+<p><a href="https://github.com/WN4SS/gprop">Simulator repository</a> · <a href="https://github.com/rezhaq05/gprop-docs">Documentation repository</a></p>
+<h2 id="coding-conventions">Coding conventions</h2>
+<p>The repository README requests ANSI C, C++17, and POSIX Makefiles. Current build targets compile C with C99 and use platform-specific make settings; follow the surrounding code and verify the target platform when proposing changes.</p>
+<h2 id="improve-the-documentation">Improve the documentation</h2>
+<p>The editable pages are Markdown files under <code>docs/</code> in the simulator workspace. Navigation lives in <code>mkdocs.yml</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>mkdocs<span class="w"> </span>build<span class="w"> </span>--strict
+</code></pre></div>
+<p>Check changed commands against the source, keep one workflow step per page, and preserve contributor credits and existing URLs. Include screenshots or concrete corrections in documentation issues.</p>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <ul>
-<li><strong>USGS 3DEP</strong> — LiDAR point cloud data via the Entwine Point Tile (EPT) service on AWS S3</li>
-<li><strong>OpenStreetMap contributors</strong> — building footprint data via the Overpass API</li>
-<li><strong>PDAL, GDAL, GEOS, PROJ</strong> — open-source geospatial libraries that power the core pipeline</li>
+<li><strong>USGS 3DEP</strong> — LiDAR through the Entwine Point Tile service.</li>
+<li><strong>OpenStreetMap contributors</strong> — building footprints and map data.</li>
+<li><strong>Microsoft Global ML Building Footprints</strong> — supplementary building footprints.</li>
+<li><strong>PDAL, GDAL, GEOS, PROJ, SDL, and the Python ecosystem</strong> — the libraries behind the simulator.</li>
 </ul>
-<hr />
-<h2 id="contact">Contact</h2>
-<p>For questions about this project contact the development team via GitHub.</p>
+<h2 id="questions-or-corrections">Questions or corrections</h2>
+<p>Use the relevant GitHub repository to contact the development team or report an issue. Include your operating system, the command you ran, and the relevant error output.</p>
 
 
 
@@ -1108,6 +1416,30 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../algorithms/ransac/" class="md-footer__link md-footer__link--prev" aria-label="Previous: RANSAC Segmentation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                RANSAC Segmentation
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1133,10 +1465,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

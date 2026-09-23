@@ -6,14 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
       
+        <link rel="canonical" href="https://gprop-docs.vercel.app/pipeline/gui/">
       
-        <link rel="prev" href="../overview/">
+      
+        <link rel="prev" href="../../reference/build/">
       
       
         <link rel="next" href="../fetch/">
@@ -23,15 +25,15 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Stage 1 — GUI - gprop Documentation</title>
+        <title>1. Plan your area - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stage-1-gui-guipy" class="md-skip">
+        <a href="#step-1-plan-your-area" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -111,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stage 1 — GUI
+              1. Plan your area
             
           </span>
         </div>
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -403,9 +290,6 @@
         
         
       
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -422,7 +306,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -438,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -451,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -495,7 +379,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -513,7 +397,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -550,10 +434,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
+  <a href="#main-controls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inputs
+        Main controls
       
     </span>
   </a>
@@ -561,33 +445,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-do-in-the-browser" class="md-nav__link">
+  <a href="#files-written-by-the-map" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you do in the browser
+        Files written by the map
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Outputs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Outputs">
+    <nav class="md-nav" aria-label="Files written by the map">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#aoiwkt-format" class="md-nav__link">
+  <a href="#aoiwkt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        aoi.wkt format
+        aoi.wkt
       
     </span>
   </a>
@@ -595,10 +468,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#topologycsv-format" class="md-nav__link">
+  <a href="#topologycsv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        topology.csv format
+        topology.csv
       
     </span>
   </a>
@@ -611,10 +484,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#routes" class="md-nav__link">
+  <a href="#check-before-continuing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Routes
+        Check before continuing
       
     </span>
   </a>
@@ -644,7 +517,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -672,7 +545,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -700,7 +573,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -728,7 +601,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -764,25 +637,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -800,8 +826,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -874,34 +900,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -943,23 +941,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -977,8 +979,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1044,6 +1046,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1065,7 +1095,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1085,9 +1115,155 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main controls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-written-by-the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files written by the map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Files written by the map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aoiwkt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aoi.wkt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topologycsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        topology.csv
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-before-continuing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check before continuing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../reference/build/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Step-by-step guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1095,144 +1271,87 @@
 
 
 
-<h1 id="stage-1-gui-guipy">Stage 1 — GUI (gui.py)</h1>
-<p><code>gui.py</code> is the entry point of the pipeline. It starts a local Flask web server and opens a browser-based map editor where you draw the area of interest and place antenna base stations.</p>
-<hr />
+<h1 id="step-1-plan-your-area">Step 1 — Plan your area</h1>
+<p><strong>Goal:</strong> Define where to simulate and where the transmitters are. You need the compiled desktop app from <a href="../../reference/build/">Step 0</a>.</p>
+<p><code>bin/gprop</code> is the native SDL3 planning interface. It displays OpenStreetMap tiles, lets you search for a location, draw or load an AOI, place directional antenna sectors, manage saved digital twins, and launch the downstream scripts.</p>
 <h2 id="run">Run</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>bin/gui.py
+<p>The GUI expects its helper scripts, font, cache, and <code>index</code> file in the current directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>bin
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./gprop
 </code></pre></div>
-<p>A browser opens at <code>http://127.0.0.1:5000</code>. When finished, press <strong>ENTER</strong> in the terminal.</p>
-<hr />
-<h2 id="inputs">Inputs</h2>
-<p>None — this is the first stage. All data is entered interactively in the browser.</p>
-<hr />
-<h2 id="what-you-do-in-the-browser">What you do in the browser</h2>
-<pre class="mermaid"><code>flowchart LR
-    A[Open geojson_creator.html] --&gt; B[Draw AoI polygon]
-    B --&gt; C[Place antenna markers]
-    C --&gt; D[Fill in antenna properties]
-    D --&gt; E[Click Save]
-    E --&gt; F[Press ENTER in terminal]</code></pre>
-<p><strong>Antenna properties per marker:</strong></p>
+<h2 id="main-controls">Main controls</h2>
+<ol>
+<li>Search for your location and press <strong>Go</strong>.</li>
+<li>Choose <strong>New AOI</strong> and draw the area on the map.</li>
+<li>Enter height, downtilt, frequency, power, and gain for a sector, then use <strong>Place Antenna</strong> to position and orient it. Repeat for additional sectors.</li>
+<li>Choose <strong>Select Pattern</strong> and select the antenna <code>.pat</code> file.</li>
+<li>Give the twin a name and select <strong>Generate Twin</strong> to launch acquisition and preprocessing. Follow <a href="../fetch/">Step 2</a> and <a href="../preproc/">Step 3</a> for those operations and their manual equivalents.</li>
+</ol>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Unit</th>
-<th>Description</th>
+<th>Control</th>
+<th>Behavior</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>azimuth</code></td>
-<td>degrees</td>
-<td>Horizontal pointing direction, 0 = North</td>
+<td>Search Location / Go</td>
+<td>Geocodes a place using OpenStreetMap Nominatim and recenters the map</td>
 </tr>
 <tr>
-<td><code>frequency</code></td>
-<td>MHz</td>
-<td>Carrier frequency</td>
+<td>New AOI</td>
+<td>Starts polygon drawing on the map</td>
 </tr>
 <tr>
-<td><code>Ptx</code> (power)</td>
-<td>dBm</td>
-<td>Transmit power</td>
+<td>Height, Downtilt, Freq, Power, Gain</td>
+<td>Sets parameters for the next antenna sector</td>
 </tr>
 <tr>
-<td><code>Gtx</code> (gain)</td>
-<td>dBi</td>
-<td>Antenna boresight gain</td>
+<td>Place Antenna</td>
+<td>Places a sector and lets you orient its azimuth on the map</td>
 </tr>
 <tr>
-<td><code>height</code></td>
-<td>m</td>
-<td>Height above ground</td>
+<td>Select Pattern</td>
+<td>Selects a <code>.pat</code> antenna-pattern file</td>
+</tr>
+<tr>
+<td>New Twin Name / Generate Twin</td>
+<td>Saves <code>aoi.wkt</code> and invokes <code>generate.py</code> for a named twin</td>
+</tr>
+<tr>
+<td>Run Simulation</td>
+<td>Saves <code>topology.csv</code>, invokes <code>run.py</code>, then generates a KMZ</td>
+</tr>
+<tr>
+<td>Inspect</td>
+<td>Opens the selected twin through <code>viewer.py</code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Removes the selected twin through <code>delete.py</code></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="outputs">Outputs</h2>
-<table>
-<thead>
-<tr>
-<th>File</th>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>scenario.geojson</code></td>
-<td>GeoJSON</td>
-<td>Raw drawn features — polygon + point markers</td>
-</tr>
-<tr>
-<td><code>aoi.wkt</code></td>
-<td>Plain text</td>
-<td>First feature (polygon) as WKT in EPSG:4326, one line</td>
-</tr>
-<tr>
-<td><code>topology.csv</code></td>
-<td>CSV</td>
-<td>One antenna per line, 8 columns, no header</td>
-</tr>
-</tbody>
-</table>
-<h3 id="aoiwkt-format"><code>aoi.wkt</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>POLYGON ((-78.875 42.895, -78.855 42.895, -78.855 42.915, -78.875 42.915, -78.875 42.895))
+<h2 id="files-written-by-the-map">Files written by the map</h2>
+<h3 id="aoiwkt"><code>aoi.wkt</code></h3>
+<p>The desktop map writes a Polygon in EPSG:4326, with longitude before latitude. The propagation engine also accepts externally prepared MultiPolygon AOIs.</p>
+<h3 id="topologycsv"><code>topology.csv</code></h3>
+<p>Headerless, one sector per row:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>longitude,latitude,height_m,azimuth_deg,downtilt_deg,frequency_MHz,power_dBm,gain_dBi
 </code></pre></div>
-<h3 id="topologycsv-format"><code>topology.csv</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>lon,lat,height_m,azimuth_deg,downtilt_deg,freq_MHz,power_dBm,gain_dBi
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-78.8645,42.9067,20.0,90.0,-1.0,3560.0,43.0,17.0
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>-78.8650,42.9070,18.0,180.0,-1.0,3640.0,43.0,17.0
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Downtilt</p>
-<p>Downtilt is hardcoded to <code>-1.0</code> in the GUI. Edit <code>topology.csv</code> directly after saving if you need a specific mechanical downtilt value.</p>
+<p>The propagation engine projects sector coordinates to EPSG:3857 and adds local surface elevation to the configured height.</p>
+<div class="admonition warning">
+<p class="admonition-title">Working-directory requirement</p>
+<p>Start the GUI from <code>bin/</code>. Its helper commands use relative paths such as <code>python3 run.py</code>, <code>python3 generate.py</code>, <code>font.ttf</code>, <code>index</code>, and <code>cache/</code>.</p>
 </div>
-<hr />
-<h2 id="routes">Routes</h2>
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/</code></td>
-<td>GET</td>
-<td>Serves <code>geojson_creator.html</code></td>
-</tr>
-<tr>
-<td><code>/custom_scenario</code></td>
-<td>GET</td>
-<td>Serves <code>scenario_customizer.html</code></td>
-</tr>
-<tr>
-<td><code>/save_geojson</code></td>
-<td>POST</td>
-<td>Saves scenario and writes aoi.wkt + topology.csv</td>
-</tr>
-<tr>
-<td><code>/save_custom_scenario</code></td>
-<td>POST</td>
-<td>Saves virtual antenna overlay</td>
-</tr>
-<tr>
-<td><code>/get_current_scenario</code></td>
-<td>GET</td>
-<td>Returns current scenario.geojson contents</td>
-</tr>
-<tr>
-<td><code>/shutdown</code></td>
-<td>POST</td>
-<td>Gracefully stops the Flask server</td>
-</tr>
-</tbody>
-</table>
+<h2 id="check-before-continuing">Check before continuing</h2>
+<p>Confirm the AOI encloses your intended study area and the antenna arrows face the intended directions. <strong>Generate Twin</strong> saves the AOI and starts the next two stages. <strong>Run Simulation</strong> saves the current sector positions to <code>topology.csv</code> and runs against the selected saved twin.</p>
+<p>For a manual workflow, prepare <code>aoi.wkt</code> and <code>topology.csv</code> using the <a href="../../reference/formats/">file formats</a>, then continue to download data.</p>
+<div class="step-links">
+<p><a href="../../reference/build/">← Install &amp; build</a>
+<a href="../fetch/">Next: Download data →</a></p>
+</div>
 
 
 
@@ -1263,6 +1382,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../reference/build/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 0. Install &amp; build">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                0. Install & build
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fetch/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Download data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Download data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1288,10 +1447,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

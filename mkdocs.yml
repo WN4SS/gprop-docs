@@ -1,0 +1,88 @@
+site_name: gprop Documentation
+site_description: Urban RF propagation simulator — current workflow and technical reference
+site_author: Alvi Rashid
+site_url: https://gprop-docs.vercel.app/
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  logo: assets/logo.png 
+  favicon: assets/logo.png
+  palette:
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+extra_css:
+  - assets/custom.css
+
+nav:
+  - Start here: index.md
+  - Step-by-step guide:
+    - "0. Install & build": reference/build.md
+    - "1. Plan your area": pipeline/gui.md
+    - "2. Download data": pipeline/fetch.md
+    - "3. Build the digital twin": pipeline/preproc.md
+    - "4. Run the simulation": pipeline/prop.md
+    - "5. Export your coverage map": pipeline/heatmap.md
+  - Workflows:
+    - Pipeline overview: pipeline/overview.md
+    - Batch coverage: pipeline/batch.md
+    - Troubleshooting: reference/troubleshooting.md
+  - Reference:
+    - "File Formats": reference/formats.md
+    - "CLI Reference": reference/cli.md
+    - "Python Dependencies": reference/python_deps.md
+  - Algorithms:
+    - "Knife-Edge Diffraction": algorithms/diffraction.md
+    - "Path Loss Models": algorithms/pathloss.md
+    - "RANSAC Segmentation": algorithms/ransac.md
+  - Contributors & contributing: contributing.md

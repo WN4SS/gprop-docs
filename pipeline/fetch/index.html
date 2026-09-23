@@ -6,11 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
+      
+        <link rel="canonical" href="https://gprop-docs.vercel.app/pipeline/fetch/">
       
       
         <link rel="prev" href="../gui/">
@@ -23,15 +25,15 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Stage 2 — Fetch - gprop Documentation</title>
+        <title>2. Download data - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stage-2-data-acquisition-fetchpy" class="md-skip">
+        <a href="#step-2-download-data" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -111,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stage 2 — Fetch
+              2. Download data
             
           </span>
         </div>
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -403,9 +290,6 @@
         
         
       
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -422,7 +306,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -438,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -451,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -486,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -523,7 +407,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -541,7 +425,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -567,10 +451,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#run" class="md-nav__link">
+  <a href="#full-acquisition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run
+        Full acquisition
       
     </span>
   </a>
@@ -578,10 +462,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
+  <a href="#terrain-only-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inputs
+        Terrain-only mode
       
     </span>
   </a>
@@ -589,10 +473,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#processing-steps" class="md-nav__link">
+  <a href="#implementation-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Processing steps
+        Implementation details
       
     </span>
   </a>
@@ -600,49 +484,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#outputs" class="md-nav__link">
+  <a href="#check-before-continuing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Outputs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buildingswkt-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        buildings.wkt format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#groundtif-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ground.tif properties
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#point-cloud-filters-applied-to-lpclaz" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Point cloud filters applied to lpc.laz
+        Check before continuing
       
     </span>
   </a>
@@ -672,7 +517,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -700,7 +545,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -728,7 +573,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -764,25 +609,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -800,8 +798,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -874,34 +872,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -943,23 +913,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -977,8 +951,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1044,6 +1018,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1065,7 +1067,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1085,9 +1087,127 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#full-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full acquisition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terrain-only-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terrain-only mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation details
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-before-continuing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check before continuing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../reference/build/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Step-by-step guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1095,134 +1215,57 @@
 
 
 
-<h1 id="stage-2-data-acquisition-fetchpy">Stage 2 — Data Acquisition (fetch.py)</h1>
-<p><code>fetch.py</code> downloads all geospatial data needed to build the digital twin. It queries two data sources — USGS 3DEP LiDAR from AWS S3, and OpenStreetMap building footprints via the Overpass API.</p>
-<hr />
-<h2 id="run">Run</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>bin/fetch.py
+<h1 id="step-2-download-data">Step 2 — Download data</h1>
+<p><strong>Goal:</strong> Download the terrain, LiDAR, and building data for the area you planned in <a href="../gui/">Step 1</a>. You need <code>aoi.wkt</code>, network access, and the <a href="../../reference/python_deps/">acquisition dependencies</a>.</p>
+<p><code>fetch.py</code> reads an EPSG:4326 AOI WKT from standard input, obtains building footprints, locates intersecting USGS 3DEP Entwine datasets, and invokes the Homebrew PDAL executable to create terrain and point-cloud inputs.</p>
+<h2 id="full-acquisition">Full acquisition</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>bin/fetch.py<span class="w"> </span>&lt;<span class="w"> </span>aoi.wkt
 </code></pre></div>
-<p>When prompted, paste the WKT polygon from <code>aoi.wkt</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Enter WKT polygon covering area of interest: POLYGON((-78.875 42.895, ...))
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The contents of <code>aoi.wkt</code> is exactly what to paste here. Run <code>cat aoi.wkt</code> to see it.</p>
-</div>
-<hr />
-<h2 id="inputs">Inputs</h2>
-<table>
-<thead>
-<tr>
-<th>Input</th>
-<th>Source</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WKT polygon (stdin)</td>
-<td>Pasted from <code>aoi.wkt</code></td>
-<td>Area of interest in EPSG:4326</td>
-</tr>
-<tr>
-<td>USGS 3DEP Entwine</td>
-<td>AWS S3</td>
-<td>LiDAR point tiles covering the AoI</td>
-</tr>
-<tr>
-<td>OSM Overpass API</td>
-<td>Internet</td>
-<td>Building footprint polygons</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="processing-steps">Processing steps</h2>
-<pre class="mermaid"><code>flowchart TD
-    A[Read AoI polygon from stdin] --&gt; B[Query OSM Overpass API]
-    A --&gt; C[Find intersecting USGS LiDAR projects]
-    B --&gt; D[Write buildings.wkt]
-    C --&gt; E[Download LAZ tiles from AWS S3 via PDAL EPT reader]
-    E --&gt; F[Clip to AoI]
-    E --&gt; G[Filter to ground points only Classification == 2]
-    G --&gt; H[Generate 1m DSM with GDAL writers.gdal]
-    H --&gt; I[Patch holes with gdal_fillnodata]
-    F --&gt; J[Remove ground + outlier points from LAZ]
-    J --&gt; K[Write lpc.laz]</code></pre>
-<hr />
-<h2 id="outputs">Outputs</h2>
 <table>
 <thead>
 <tr>
 <th>File</th>
-<th>Format</th>
-<th>CRS</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>lpc.laz</code></td>
-<td>LAZ (compressed LAS)</td>
-<td>EPSG:3857</td>
-<td>Non-ground, non-outlier LiDAR points</td>
+<td><code>buildings.wkt</code></td>
+<td>OSM footprints plus non-overlapping Microsoft footprints, projected to EPSG:3857</td>
 </tr>
 <tr>
-<td><code>buildings.wkt</code></td>
-<td>Plain text</td>
-<td>EPSG:3857</td>
-<td>One WKT polygon per line</td>
+<td><code>lpc.laz</code></td>
+<td>Clipped, compressed non-ground LiDAR with noise and returns below 2 m removed</td>
 </tr>
 <tr>
 <td><code>ground.tif</code></td>
-<td>GeoTIFF, 1 band Float64</td>
-<td>EPSG:3857</td>
-<td>1m bare-earth digital surface model</td>
+<td>1 m bare-earth raster from classification 2 returns, with holes filled</td>
 </tr>
 </tbody>
 </table>
-<h3 id="buildingswkt-format"><code>buildings.wkt</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>POLYGON ((748232.1 6421847.3, 748250.4 6421847.3, ...))
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>POLYGON ((748310.0 6421900.0, 748340.0 6421900.0, ...))
+<p>The active filters for <code>lpc.laz</code> retain points matching:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Classification != 2 &amp;&amp; Classification != 7 &amp;&amp; Classification != 18 &amp;&amp; HeightAboveGround &gt;= 2
 </code></pre></div>
-<h3 id="groundtif-properties"><code>ground.tif</code> properties</h3>
+<h2 id="terrain-only-mode">Terrain-only mode</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python3<span class="w"> </span>bin/fetch.py<span class="w"> </span>--ground-only<span class="w"> </span>&lt;<span class="w"> </span>aoi.wkt
+</code></pre></div>
+<p>This mode skips footprint geometry retrieval and <code>lpc.laz</code>. It still reads the footprint catalog in the current implementation, then streams classification 2 points directly from EPT into <code>ground.tif</code>. Use it for terrain-only experiments; the full preprocessing step requires the full acquisition outputs.</p>
+<h2 id="implementation-details">Implementation details</h2>
 <ul>
-<li>Resolution: 1m × 1m</li>
-<li>Band: 1 (elevation in metres above sea level)</li>
-<li>NoData holes filled by <code>gdal_fillnodata</code></li>
+<li>EPT project URLs are normalized to HTTPS and the current <code>s3.us-west-2.amazonaws.com</code> endpoint.</li>
+<li>The AOI is projected to EPSG:3857 before clipping.</li>
+<li>PDAL is currently invoked as <code>/opt/homebrew/bin/pdal pipeline --stdin</code>; adjust that path on non-Homebrew systems.</li>
+<li><code>gdal_fillnodata ground.tif ground.tif</code> fills raster gaps in place.</li>
 </ul>
-<hr />
-<h2 id="point-cloud-filters-applied-to-lpclaz">Point cloud filters applied to <code>lpc.laz</code></h2>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>PDAL expression</th>
-<th>Removes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ground points</td>
-<td><code>Classification != 2</code></td>
-<td>Bare earth returns</td>
-</tr>
-<tr>
-<td>Outliers</td>
-<td><code>Classification != 7 &amp;&amp; Classification != 18</code></td>
-<td>Low/high noise</td>
-</tr>
-<tr>
-<td>Low vegetation</td>
-<td><code>HeightAboveGround &gt;= 2</code></td>
-<td>Grass, shrubs under 2m</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition warning">
-<p class="admonition-title">Common error</p>
-<p>If you see <code>readers.ept: Could not read from 's3-us-west-2.amazonaws.com/...'</code>, the S3 endpoint is stale.
-In <code>fetch.py</code> replace <code>s3-us-west-2.amazonaws.com</code> with <code>s3.us-west-2.amazonaws.com</code>.</p>
+<p class="admonition-title">Warning</p>
+<p>The script requires network access to OpenStreetMap, Microsoft building footprints, and the USGS 3DEP catalog and EPT endpoints.</p>
+</div>
+<h2 id="check-before-continuing">Check before continuing</h2>
+<p>For the full workflow, confirm <code>lpc.laz</code>, <code>buildings.wkt</code>, and <code>ground.tif</code> were created in your working directory. Review any incomplete LiDAR coverage warning before moving on.</p>
+<div class="step-links">
+<p><a href="../gui/">← Plan your area</a>
+<a href="../preproc/">Next: Build the digital twin →</a></p>
 </div>
 
 
@@ -1254,6 +1297,46 @@ In <code>fetch.py</code> replace <code>s3-us-west-2.amazonaws.com</code> with <c
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gui/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Plan your area">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Plan your area
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../preproc/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Build the digital twin">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Build the digital twin
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1279,10 +1362,10 @@ In <code>fetch.py</code> replace <code>s3-us-west-2.amazonaws.com</code> with <c
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

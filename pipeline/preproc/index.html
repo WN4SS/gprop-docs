@@ -6,11 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
+      
+        <link rel="canonical" href="https://gprop-docs.vercel.app/pipeline/preproc/">
       
       
         <link rel="prev" href="../fetch/">
@@ -23,15 +25,15 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Stage 3 — Preproc - gprop Documentation</title>
+        <title>3. Build the digital twin - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stage-3-preprocessing-preproc" class="md-skip">
+        <a href="#step-3-build-the-digital-twin" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -111,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stage 3 — Preproc
+              3. Build the digital twin
             
           </span>
         </div>
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -403,9 +290,6 @@
         
         
       
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -422,7 +306,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -438,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -451,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -486,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -514,7 +398,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -551,7 +435,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -569,7 +453,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -606,21 +490,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
+  <a href="#current-processing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inputs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#processing-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processing steps
+        Current processing
       
     </span>
   </a>
@@ -636,41 +509,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buildingscsv-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        buildings.csv format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#treescsv-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        trees.csv format
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#segmentation-parameters" class="md-nav__link">
+  <a href="#key-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Segmentation parameters
+        Key parameters
       
     </span>
   </a>
@@ -678,10 +523,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminal-output" class="md-nav__link">
+  <a href="#check-before-continuing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal output
+        Check before continuing
       
     </span>
   </a>
@@ -711,7 +556,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -739,7 +584,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -775,25 +620,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -811,8 +809,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -885,34 +883,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -954,23 +924,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -988,8 +962,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1055,6 +1029,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1076,7 +1078,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1096,9 +1098,138 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current processing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-before-continuing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check before continuing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../reference/build/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Step-by-step guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1106,174 +1237,130 @@
 
 
 
-<h1 id="stage-3-preprocessing-preproc">Stage 3 — Preprocessing (preproc)</h1>
-<p><code>preproc</code> is a compiled C binary that constructs the 3D digital twin from raw LiDAR and building footprint data. It segments the point cloud into building roof planes and vegetation clusters.</p>
-<hr />
+<h1 id="step-3-build-the-digital-twin">Step 3 — Build the digital twin</h1>
+<p><strong>Goal:</strong> Convert the full acquisition outputs from <a href="../fetch/">Step 2</a> into the geometry files used by the simulator.</p>
+<p><code>preproc</code> turns the clipped non-ground point cloud and building footprints into compact roof-plane and vegetation geometry.</p>
 <h2 id="run">Run</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./bin/preproc<span class="w"> </span>lpc.laz<span class="w"> </span>buildings.wkt<span class="w"> </span>ground.tif
 </code></pre></div>
-<hr />
-<h2 id="inputs">Inputs</h2>
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>File</th>
-<th>Format</th>
+<th>Position</th>
+<th>Input</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>argv[1]</code></td>
+<td>1</td>
 <td><code>lpc.laz</code></td>
-<td>LAZ</td>
-<td>Non-ground LiDAR point cloud</td>
+<td>Non-ground LiDAR points in EPSG:3857</td>
 </tr>
 <tr>
-<td><code>argv[2]</code></td>
+<td>2</td>
 <td><code>buildings.wkt</code></td>
-<td>Plain text</td>
-<td>OSM building footprints, one WKT per line, EPSG:3857</td>
+<td>One projected building footprint per line</td>
 </tr>
 <tr>
-<td><code>argv[3]</code></td>
+<td>3</td>
 <td><code>ground.tif</code></td>
-<td>GeoTIFF</td>
-<td>1m bare-earth DSM</td>
+<td>Bare-earth elevation raster</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="processing-steps">Processing steps</h2>
-<pre class="mermaid"><code>flowchart TD
-    A[Read LAZ via PDAL] --&gt; B[Read building footprints via GEOS WKT reader]
-    B --&gt; C[Read DSM via GDAL]
-    C --&gt; D[assign_indices: sort points into building footprints]
-    D --&gt; E{Point inside a building?}
-    E --&gt;|yes| F[Add to building point set]
-    E --&gt;|no| G[Add to remaining outdoor set]
-    F --&gt; H[cluster_planes: RANSAC per building]
-    H --&gt; I[PCA plane refinement]
-    I --&gt; J[Coincident plane merging]
-    J --&gt; K[Outlier pruning]
-    G --&gt; L[cluster_trees: Euclidean clustering]
-    K --&gt; M[Write buildings.csv and buildings.ply]
-    L --&gt; N[Write trees.csv and trees.ply]
-    K --&gt; O[Write out.laz]</code></pre>
-<hr />
+<h2 id="current-processing">Current processing</h2>
+<ol>
+<li>Read LAZ points through the PDAL bridge.</li>
+<li>Load footprint geometries and the terrain raster.</li>
+<li>Insert building footprints into a GEOS STRtree.</li>
+<li>Query the tree for each point and assign it to the first containing footprint; unassigned points become vegetation candidates.</li>
+<li>Segment each building with RANSAC, refine planes with PCA, merge coincident facets, and prune outliers.</li>
+<li>Cluster vegetation with a spatial hash whose cell width matches the 0.6 m neighbor radius.</li>
+<li>Write CSV geometry and the classified point cloud. PLY utilities exist in the source, but the current entry point does not call them.</li>
+</ol>
+<p>The STRtree and spatial-grid clustering replace full scans that became prohibitively slow on large AOIs. Tree-clustering progress is printed while processing.</p>
 <h2 id="outputs">Outputs</h2>
 <table>
 <thead>
 <tr>
 <th>File</th>
-<th>Format</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>buildings.csv</code></td>
-<td>CSV</td>
-<td>One roof plane per line: WKT footprint, a, b, c, d coefficients</td>
+<td>Quoted WKT roof footprint plus plane coefficients <code>a,b,c,d</code></td>
 </tr>
 <tr>
 <td><code>trees.csv</code></td>
-<td>CSV</td>
-<td>One tree cluster per line: WKT footprint, max elevation</td>
-</tr>
-<tr>
-<td><code>buildings.ply</code></td>
-<td>PLY ASCII</td>
-<td>3D mesh of all building roof planes</td>
-</tr>
-<tr>
-<td><code>trees.ply</code></td>
-<td>PLY ASCII</td>
-<td>3D double-cone mesh of all tree clusters</td>
+<td>Quoted WKT crown footprint plus maximum elevation</td>
 </tr>
 <tr>
 <td><code>out.laz</code></td>
-<td>LAZ</td>
-<td>Segmented point cloud with per-plane classification IDs</td>
+<td>Point cloud with segmentation classifications</td>
 </tr>
 </tbody>
 </table>
-<h3 id="buildingscsv-format"><code>buildings.csv</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;POLYGON ((x1 y1, x2 y2, ...))&quot;,a,b,c,d
-</code></pre></div>
-<p>The plane equation is <code>ax + by + cz = d</code>, giving roof elevation at any (x,y) as <code>z = (d - ax - by) / c</code>.</p>
-<h3 id="treescsv-format"><code>trees.csv</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;POLYGON ((x1 y1, x2 y2, ...))&quot;,max_elevation_metres
-</code></pre></div>
-<hr />
-<h2 id="segmentation-parameters">Segmentation parameters</h2>
+<h2 id="key-parameters">Key parameters</h2>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
-<th>Effect</th>
+<th>Constant</th>
+<th style="text-align: right;">Value</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>INITIAL_KNN</code></td>
-<td>50</td>
-<td>Neighbours searched for RANSAC seed</td>
+<td style="text-align: right;">50</td>
+<td>RANSAC seed neighborhood</td>
 </tr>
 <tr>
 <td><code>MIN_INITIAL_POINTS</code></td>
-<td>40</td>
-<td>Minimum inliers required to accept a plane</td>
+<td style="text-align: right;">40</td>
+<td>Minimum initial plane inliers</td>
 </tr>
 <tr>
 <td><code>THRESH</code></td>
-<td>0.1 m</td>
-<td>Maximum distance from plane to count as inlier</td>
+<td style="text-align: right;">0.1 m</td>
+<td>Plane inlier distance</td>
 </tr>
 <tr>
 <td><code>MIN_NORMAL_Z</code></td>
-<td>0.5</td>
-<td>Filters out near-vertical planes (walls)</td>
+<td style="text-align: right;">0.5</td>
+<td>Rejects near-vertical planes</td>
 </tr>
 <tr>
 <td><code>MAX_PLANES</code></td>
-<td>10</td>
-<td>Maximum roof facets per building</td>
+<td style="text-align: right;">10</td>
+<td>Maximum facets per building</td>
 </tr>
 <tr>
 <td><code>MAX_DISTANCE</code></td>
-<td>0.6 m</td>
-<td>Euclidean cluster radius for trees</td>
+<td style="text-align: right;">0.6 m</td>
+<td>Vegetation neighbor radius</td>
 </tr>
 <tr>
 <td><code>MIN_CLUSTER_POINTS</code></td>
-<td>50</td>
-<td>Minimum points to accept a tree cluster</td>
+<td style="text-align: right;">50</td>
+<td>Minimum accepted vegetation cluster</td>
+</tr>
+<tr>
+<td><code>MAX_CLUSTER_POINTS</code></td>
+<td style="text-align: right;">500</td>
+<td>Maximum points retained per cluster</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="terminal-output">Terminal output</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>read 847231 points from lpc.laz
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>read 2438 building footprints from buildings.wkt
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>read DSM from ground.tif
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>sorting point indices into building footprints
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>847231 remaining points, extracting Euclidean tree clusters
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>312 trees clusters detected
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>segmenting buildings into planar components
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>building 1 of 2438 segmented: 2 planes detected
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>...
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>writing buildings to buildings.ply
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>writing trees to trees.ply
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>writing raw segmented point cloud data to out.laz
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>writing buildings to buildings.csv
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>writing trees to trees.csv
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Runtime</p>
-<p>preproc takes ~218s on real data (2,438 buildings). Run it once per area — reuse <code>buildings.csv</code> and <code>trees.csv</code> for all subsequent prop runs.</p>
+<p>Outputs are written to the current working directory.</p>
+<h2 id="check-before-continuing">Check before continuing</h2>
+<p>Confirm <code>buildings.csv</code>, <code>trees.csv</code>, and <code>out.laz</code> were written. Keep <code>ground.tif</code> and your AOI alongside the twin files. An empty clutter file can be valid in an area with no detected features; inspect the segmentation counts to understand the result.</p>
+<div class="step-links">
+<p><a href="../fetch/">← Download data</a>
+<a href="../prop/">Next: Run the simulation →</a></p>
 </div>
 
 
@@ -1305,6 +1392,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../fetch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2. Download data">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2. Download data
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../prop/" class="md-footer__link md-footer__link--next" aria-label="Next: 4. Run the simulation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                4. Run the simulation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1330,10 +1457,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

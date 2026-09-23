@@ -6,11 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
+      
+        <link rel="canonical" href="https://gprop-docs.vercel.app/pipeline/prop/">
       
       
         <link rel="prev" href="../preproc/">
@@ -23,15 +25,15 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Stage 4 — Prop - gprop Documentation</title>
+        <title>4. Run the simulation - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stage-4-propagation-prop" class="md-skip">
+        <a href="#step-4-run-the-simulation" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -111,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Stage 4 — Prop
+              4. Run the simulation
             
           </span>
         </div>
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -403,9 +290,6 @@
         
         
       
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
@@ -422,7 +306,7 @@
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -438,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -451,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -486,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -514,7 +398,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -542,7 +426,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -579,7 +463,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -597,7 +481,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -634,49 +518,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputs" class="md-nav__link">
+  <a href="#active-heatmap-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inputs
+        Active heatmap model
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Inputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#topologycsv-column-order" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        topology.csv column order
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#antennapat-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        antenna.pat format
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#processing-steps" class="md-nav__link">
+  <a href="#aoi-and-terrain-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Processing steps
+        AOI and terrain handling
       
     </span>
   </a>
@@ -692,41 +548,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Outputs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#heatmapcsv-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        heatmap.csv format
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-parameters-hardcoded-in-propc" class="md-nav__link">
+  <a href="#check-before-continuing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key parameters (hardcoded in prop.c)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance
+        Check before continuing
       
     </span>
   </a>
@@ -756,7 +584,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -792,25 +620,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -828,8 +809,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -902,34 +883,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -971,23 +924,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1005,8 +962,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1072,6 +1029,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1093,7 +1078,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1113,9 +1098,138 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-heatmap-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active heatmap model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aoi-and-terrain-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AOI and terrain handling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-before-continuing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check before continuing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../reference/build/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Step-by-step guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1123,186 +1237,94 @@
 
 
 
-<h1 id="stage-4-propagation-prop">Stage 4 — Propagation (prop)</h1>
-<p><code>prop</code> is a compiled C binary that computes received signal strength (RSS) at every 5m grid point inside the area of interest. It loads the digital twin produced by preproc and models signal propagation using free-space path loss and multi-knife-edge diffraction.</p>
-<hr />
+<h1 id="step-4-run-the-simulation">Step 4 — Run the simulation</h1>
+<p><strong>Goal:</strong> Produce a grid of predicted received signal strengths. You need the digital twin from <a href="../preproc/">Step 3</a>, the planned topology, and an antenna pattern.</p>
+<p><code>prop</code> loads transmitters, an antenna pattern, the AOI, digital-twin clutter, and terrain. It evaluates the strongest received signal at each 5 m sample inside the AOI.</p>
 <h2 id="run">Run</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># single-threaded</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./bin/prop<span class="w"> </span>topology.csv<span class="w"> </span>antenna.pat<span class="w"> </span>aoi.wkt<span class="w"> </span>buildings.csv<span class="w"> </span>trees.csv<span class="w"> </span>ground.tif
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># multi-threaded (recommended)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>./bin/prop<span class="w"> </span>topology.csv<span class="w"> </span>antenna.pat<span class="w"> </span>aoi.wkt<span class="w"> </span>buildings.csv<span class="w"> </span>trees.csv<span class="w"> </span>ground.tif
+<p>The executable also reads <code>drive_test.csv</code> from the working directory. If you have no drive-test measurements, create an empty file only if one is absent; this command preserves existing data:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>touch<span class="w"> </span>drive_test.csv
 </code></pre></div>
-<hr />
-<h2 id="inputs">Inputs</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>./bin/prop<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>topology.csv<span class="w"> </span>antenna.pat<span class="w"> </span>aoi.wkt<span class="w"> </span>buildings.csv<span class="w"> </span>trees.csv<span class="w"> </span>ground.tif
+</code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>File</th>
-<th>Format</th>
-<th>Description</th>
+<th>Position</th>
+<th>Input</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>argv[1]</code></td>
-<td><code>topology.csv</code></td>
-<td>CSV</td>
-<td>Antenna parameters, 8 columns, no header</td>
+<td>1</td>
+<td>Headerless 8-column <code>topology.csv</code></td>
 </tr>
 <tr>
-<td><code>argv[2]</code></td>
-<td><code>antenna.pat</code></td>
-<td>Plain text</td>
-<td>541 dB attenuation values, one per line</td>
+<td>2</td>
+<td>541-line antenna <code>.pat</code> file</td>
 </tr>
 <tr>
-<td><code>argv[3]</code></td>
-<td><code>aoi.wkt</code></td>
-<td>Plain text</td>
-<td>Area of interest polygon in EPSG:4326</td>
+<td>3</td>
+<td>EPSG:4326 Polygon or MultiPolygon AOI</td>
 </tr>
 <tr>
-<td><code>argv[4]</code></td>
+<td>4</td>
 <td><code>buildings.csv</code></td>
-<td>CSV</td>
-<td>Roof plane equations from preproc</td>
 </tr>
 <tr>
-<td><code>argv[5]</code></td>
+<td>5</td>
 <td><code>trees.csv</code></td>
-<td>CSV</td>
-<td>Tree cluster data from preproc</td>
 </tr>
 <tr>
-<td><code>argv[6]</code></td>
+<td>6</td>
 <td><code>ground.tif</code></td>
-<td>GeoTIFF</td>
-<td>1m bare-earth DSM</td>
 </tr>
 </tbody>
 </table>
-<h3 id="topologycsv-column-order"><code>topology.csv</code> column order</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>lon, lat, height_above_ground_m, azimuth_deg, downtilt_deg, freq_MHz, power_dBm, gain_dBi
+<h2 id="active-heatmap-model">Active heatmap model</h2>
+<p>The current <code>gen_heatmap</code> path uses:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>RSS = transmit power
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      - log-distance path loss (n = 5)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      + directional antenna gain
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-78.8645,42.9067,20.0,90.0,-1.0,3560.0,43.0,17.0
-</code></pre></div>
-<h3 id="antennapat-format"><code>antenna.pat</code> format</h3>
-<p>541 lines total. No header. One dB attenuation value per line.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Lines 1–360    → horizontal pattern, degrees 0–359
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                 0.0 dB at boresight, negative values = attenuation
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Lines 361–541  → vertical pattern, degrees 0–180
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                 line 361+90 = 451 is horizontal boresight (0.0 dB)
-</code></pre></div>
-<hr />
-<h2 id="processing-steps">Processing steps</h2>
-<pre class="mermaid"><code>flowchart TD
-    A[Read topology.csv] --&gt; B[Project lat/lon to EPSG:3857 via PROJ]
-    B --&gt; C[Read antenna.pat]
-    C --&gt; D[init_twin: load buildings.csv and trees.csv]
-    D --&gt; E[Build 10m tile grid with Amanatides-Woo traversal]
-    E --&gt; F[Read ground.tif DSM]
-    F --&gt; G[For every 5m grid point inside AoI polygon]
-    G --&gt; H[ground_elevation lookup from DSM]
-    H --&gt; I[Set RX height = ground + 2m]
-    I --&gt; J[diffraction_loss: build LOS profile]
-    J --&gt; K[Intersect LOS with building and tree footprint edges]
-    K --&gt; L[Prune dominated edges]
-    L --&gt; M[Fresnel-Kirchhoff knife-edge loss per hop]
-    M --&gt; N[base_loss: FSPL + antenna gain from pattern]
-    N --&gt; O[RSS = power - diffraction_loss - base_loss]
-    O --&gt; P[Keep max RSS across all Tx]
-    P --&gt; Q[Write to heatmap.csv]
-    G --&gt; G</code></pre>
-<hr />
+<ul>
+<li>Grid spacing: 5 m</li>
+<li>Receiver height: ground elevation + 2 m</li>
+<li>Transmitter height: configured height + local surface elevation</li>
+<li>Result per cell: maximum RSS across all sectors</li>
+<li>Diffraction loss: explicitly set to zero in the active loop</li>
+<li>Reflection heatmap: implemented but its call is commented out</li>
+</ul>
+<p>This configuration is intended for the current preliminary AOI coverage runs. The repository still contains FSPL, alpha-beta, knife-edge diffraction, terrain profiles, and up-to-three-bounce reflection code for future or experimental use.</p>
+<h2 id="aoi-and-terrain-handling">AOI and terrain handling</h2>
+<p>The entire GEOS geometry is projected from EPSG:4326 to EPSG:3857, preserving every MultiPolygon component and interior ring. Ground raster indices are clamped using the raster dimensions. Buildings and trees are indexed in 10 m tiles for obstruction queries.</p>
 <h2 id="outputs">Outputs</h2>
 <table>
 <thead>
 <tr>
 <th>File</th>
-<th>Format</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>heatmap.csv</code></td>
-<td>CSV</td>
-<td>X (EPSG:3857), Y (EPSG:3857), RSS (dBm) per grid point</td>
+<td>Headerless <code>x,y,rss</code> samples in EPSG:3857</td>
+</tr>
+<tr>
+<td><code>comparison.csv</code></td>
+<td>Absolute difference against <code>drive_test.csv</code>, when that file supplies samples</td>
 </tr>
 </tbody>
 </table>
-<h3 id="heatmapcsv-format"><code>heatmap.csv</code> format</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-8771523.6917,5309832.0847,-86.52
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-8770820.0812,5309991.3873,-68.72
-</code></pre></div>
-<hr />
-<h2 id="key-parameters-hardcoded-in-propc">Key parameters (hardcoded in prop.c)</h2>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>HEATMAP_RESOLUTION</code></td>
-<td>5 m</td>
-<td>Grid spacing</td>
-</tr>
-<tr>
-<td><code>RX_HAG</code></td>
-<td>2 m</td>
-<td>Receiver height above ground</td>
-</tr>
-<tr>
-<td><code>SCALE</code></td>
-<td>10 m</td>
-<td>Tile size for spatial indexing</td>
-</tr>
-<tr>
-<td><code>INITIAL_PROFILE_LEN</code></td>
-<td>1000</td>
-<td>Initial edge buffer for diffraction</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="performance">Performance</h2>
-<table>
-<thead>
-<tr>
-<th>Cores</th>
-<th>Mean runtime</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>22,317 ms</td>
-</tr>
-<tr>
-<td>2</td>
-<td>11,548 ms</td>
-</tr>
-<tr>
-<td>4</td>
-<td>6,112 ms</td>
-</tr>
-<tr>
-<td>8</td>
-<td>4,542 ms</td>
-</tr>
-<tr>
-<td>10</td>
-<td>4,061 ms</td>
-</tr>
-</tbody>
-</table>
-<p>Set <code>OMP_NUM_THREADS</code> to control thread count. Optimal is 4–8 for this workload — scaling becomes sub-linear above 8 due to memory bandwidth.</p>
+<p><code>heatmap.csv</code> is always written to the current working directory. The executable currently also calls the drive-test comparison path, so provide an empty or valid <code>drive_test.csv</code> in the working directory.</p>
+<p>The comparison routine uses FSPL plus diffraction, while the active coverage grid uses log-distance loss without diffraction. Do not interpret <code>comparison.csv</code> as validation of the active coverage configuration.</p>
+<h2 id="check-before-continuing">Check before continuing</h2>
+<p>Confirm <code>heatmap.csv</code> contains numeric <code>x,y,rss</code> rows without a header. Keep <code>topology.csv</code> available for the antenna arrows in the next step.</p>
+<div class="step-links">
+<p><a href="../preproc/">← Build the digital twin</a>
+<a href="../heatmap/">Next: Export your coverage map →</a></p>
+</div>
 
 
 
@@ -1333,6 +1355,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../preproc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Build the digital twin">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3. Build the digital twin
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../heatmap/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Export your coverage map">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5. Export your coverage map
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1358,10 +1420,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

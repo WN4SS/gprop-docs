@@ -6,24 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
       
+        <link rel="canonical" href="https://gprop-docs.vercel.app/reference/cli/">
+      
       
         <link rel="prev" href="../formats/">
       
       
-        <link rel="next" href="../build/">
+        <link rel="next" href="../python_deps/">
       
       
         
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../pipeline/overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -398,26 +285,28 @@
     
     
       
-      
+        
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -433,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -446,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pipeline/overview/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -481,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -509,7 +398,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -537,7 +426,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -565,7 +454,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -593,7 +482,160 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipeline/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipeline/batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
   
 
     
@@ -631,16 +673,11 @@
       
         
       
-        
-      
     
     
     
       
         
-        
-      
-      
         
       
     
@@ -649,10 +686,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -670,8 +707,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -776,10 +813,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guipy" class="md-nav__link">
+  <a href="#desktop-planner" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gui.py
+        Desktop planner
       
     </span>
   </a>
@@ -787,10 +824,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fetchpy" class="md-nav__link">
+  <a href="#data-acquisition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        fetch.py
+        Data acquisition
       
     </span>
   </a>
@@ -798,10 +835,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#preproc" class="md-nav__link">
+  <a href="#preprocessing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        preproc
+        Preprocessing
       
     </span>
   </a>
@@ -809,10 +846,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prop" class="md-nav__link">
+  <a href="#propagation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        prop
+        Propagation
       
     </span>
   </a>
@@ -820,10 +857,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3dheatmappy" class="md-nav__link">
+  <a href="#kmz-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3DHeatMap.py
+        KMZ generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-preliminary-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch preliminary coverage
       
     </span>
   </a>
@@ -834,34 +882,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -915,23 +935,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -949,8 +973,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1016,6 +1040,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1037,7 +1089,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1057,9 +1109,149 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desktop planner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data acquisition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preprocessing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propagation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmz-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KMZ generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-preliminary-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch preliminary coverage
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../formats/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1068,213 +1260,99 @@
 
 
 <h1 id="cli-reference">CLI Reference</h1>
-<hr />
-<h2 id="guipy">gui.py</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>bin/gui.py
+<h2 id="desktop-planner">Desktop planner</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>bin
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>./gprop
 </code></pre></div>
-<p>No arguments. Opens browser at <code>http://127.0.0.1:5000</code>. Press ENTER in terminal to stop.</p>
-<hr />
-<h2 id="fetchpy">fetch.py</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>bin/fetch.py
+<p>The native SDL3 application uses relative helper paths and should be launched from <code>bin/</code>.</p>
+<h2 id="data-acquisition">Data acquisition</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3<span class="w"> </span>bin/fetch.py<span class="w"> </span><span class="o">[</span>--ground-only<span class="o">]</span><span class="w"> </span>&lt;<span class="w"> </span>aoi.wkt
 </code></pre></div>
-<p>No arguments. Reads WKT from stdin when prompted.</p>
-<hr />
-<h2 id="preproc">preproc</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./bin/preproc<span class="w"> </span>&lt;laz&gt;<span class="w"> </span>&lt;wkt&gt;<span class="w"> </span>&lt;tif&gt;
+<p><code>--ground-only</code> writes terrain without downloading clutter or footprints.</p>
+<h2 id="preprocessing">Preprocessing</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./bin/preproc<span class="w"> </span>&lt;lpc.laz&gt;<span class="w"> </span>&lt;buildings.wkt&gt;<span class="w"> </span>&lt;ground.tif&gt;
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Position</th>
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><code>laz</code></td>
-<td>Path to LiDAR point cloud (.laz)</td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>wkt</code></td>
-<td>Path to building footprints (.wkt)</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>tif</code></td>
-<td>Path to ground DSM (.tif)</td>
-</tr>
-</tbody>
-</table>
-<p>Outputs are always written to the current working directory.</p>
-<hr />
-<h2 id="prop">prop</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./bin/prop<span class="w"> </span>&lt;topology&gt;<span class="w"> </span>&lt;pattern&gt;<span class="w"> </span>&lt;aoi&gt;<span class="w"> </span>&lt;buildings&gt;<span class="w"> </span>&lt;trees&gt;<span class="w"> </span>&lt;ground&gt;
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># with multithreading</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>./bin/prop<span class="w"> </span>...
+<p>Outputs are written to the current directory.</p>
+<h2 id="propagation">Propagation</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">8</span><span class="w"> </span>./bin/prop<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>&lt;topology.csv&gt;<span class="w"> </span>&lt;antenna.pat&gt;<span class="w"> </span>&lt;aoi.wkt&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>&lt;buildings.csv&gt;<span class="w"> </span>&lt;trees.csv&gt;<span class="w"> </span>&lt;ground.tif&gt;
+</code></pre></div>
+<p><code>heatmap.csv</code> and <code>comparison.csv</code> are written to the current directory. The current model selection is compiled into <code>prop/prop.c</code>; there is no model-selection command-line flag.</p>
+<h2 id="kmz-generation">KMZ generation</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3<span class="w"> </span>bin/heatmap.py<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
 </code></pre></div>
 <table>
 <thead>
 <tr>
-<th>Position</th>
-<th>Argument</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><code>topology</code></td>
-<td>Path to topology.csv</td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>pattern</code></td>
-<td>Path to antenna.pat (541 lines)</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>aoi</code></td>
-<td>Path to aoi.wkt (EPSG:4326 polygon)</td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>buildings</code></td>
-<td>Path to buildings.csv from preproc</td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>trees</code></td>
-<td>Path to trees.csv from preproc</td>
-</tr>
-<tr>
-<td>6</td>
-<td><code>ground</code></td>
-<td>Path to ground.tif DSM</td>
-</tr>
-</tbody>
-</table>
-<p>Output <code>heatmap.csv</code> is written to the current working directory.</p>
-<p><strong>Environment variables:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OMP_NUM_THREADS</code></td>
-<td>system cores</td>
-<td>Number of OpenMP threads</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="3dheatmappy">3DHeatMap.py</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3<span class="w"> </span>bin/3DHeatMap.py<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Argument</th>
-<th>Default</th>
-<th>Description</th>
+<th>Option</th>
+<th style="text-align: right;">Default</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>--csv</code></td>
-<td><code>heatmap1.csv</code></td>
-<td>RSS grid CSV</td>
-</tr>
-<tr>
-<td><code>--x</code></td>
-<td><code>X</code></td>
-<td>X column name</td>
-</tr>
-<tr>
-<td><code>--y</code></td>
-<td><code>Y</code></td>
-<td>Y column name</td>
-</tr>
-<tr>
-<td><code>--rsrp</code></td>
-<td><code>RSS</code></td>
-<td>Signal column name</td>
-</tr>
-<tr>
-<td><code>--topology_csv</code></td>
-<td><code>topology.csv</code></td>
-<td>Antenna topology</td>
+<td style="text-align: right;"><code>heatmap3.csv</code></td>
 </tr>
 <tr>
 <td><code>--cell</code></td>
-<td><code>1.0</code></td>
-<td>Grid cell size (m)</td>
+<td style="text-align: right;"><code>0.8</code></td>
 </tr>
 <tr>
 <td><code>--sigma</code></td>
-<td><code>5.0</code></td>
-<td>Gaussian blur (grid cells)</td>
-</tr>
-<tr>
-<td><code>--min_weight</code></td>
-<td><code>0.02</code></td>
-<td>Mask threshold</td>
+<td style="text-align: right;"><code>5.0</code></td>
 </tr>
 <tr>
 <td><code>--alpha</code></td>
-<td><code>0.60</code></td>
-<td>Heatmap transparency</td>
+<td style="text-align: right;"><code>0.60</code></td>
 </tr>
 <tr>
-<td><code>--cmap</code></td>
-<td><code>turbo</code></td>
-<td>Matplotlib colourmap</td>
-</tr>
-<tr>
-<td><code>--antenna_length_m</code></td>
-<td><code>120</code></td>
-<td>Arrow length (m)</td>
-</tr>
-<tr>
-<td><code>--arrow_head_m</code></td>
-<td><code>25</code></td>
-<td>Arrowhead size (m)</td>
-</tr>
-<tr>
-<td><code>--arrow_head_angle_deg</code></td>
-<td><code>25</code></td>
-<td>Arrowhead angle</td>
-</tr>
-<tr>
-<td><code>--antenna_line_width</code></td>
-<td><code>5</code></td>
-<td>Arrow line thickness</td>
-</tr>
-<tr>
-<td><code>--antenna_label_scale</code></td>
-<td><code>2.0</code></td>
-<td>Label scale in Google Earth</td>
+<td><code>--min_weight</code></td>
+<td style="text-align: right;"><code>0.02</code></td>
 </tr>
 <tr>
 <td><code>--outdir</code></td>
-<td><code>outputs</code></td>
-<td>Output directory</td>
+<td style="text-align: right;"><code>.</code></td>
 </tr>
 <tr>
-<td><code>--out_prefix</code></td>
-<td><code>rsrp0_dummy</code></td>
-<td>Filename prefix</td>
+<td><code>--cmap</code></td>
+<td style="text-align: right;"><code>turbo</code></td>
+</tr>
+<tr>
+<td><code>--topology_csv</code></td>
+<td style="text-align: right;"><code>topology.csv</code></td>
+</tr>
+<tr>
+<td><code>--antenna_length_m</code></td>
+<td style="text-align: right;"><code>300</code></td>
+</tr>
+<tr>
+<td><code>--arrow_head_m</code></td>
+<td style="text-align: right;"><code>25</code></td>
+</tr>
+<tr>
+<td><code>--arrow_head_angle_deg</code></td>
+<td style="text-align: right;"><code>25</code></td>
+</tr>
+<tr>
+<td><code>--antenna_line_width</code></td>
+<td style="text-align: right;"><code>80</code></td>
+</tr>
+<tr>
+<td><code>--antenna_label_scale</code></td>
+<td style="text-align: right;"><code>2.0</code></td>
+</tr>
+<tr>
+<td><code>--map_preview</code></td>
+<td style="text-align: right;">disabled</td>
 </tr>
 </tbody>
 </table>
+<h2 id="batch-preliminary-coverage">Batch preliminary coverage</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>run_temporary_coverage.py
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python3<span class="w"> </span>generate_map_previews.py
+</code></pre></div>
+<p>The first command rewrites coverage outputs and final AOIs under <code>deployments/</code>. The second writes site-level PNG previews under <code>heatmaps/</code>.</p>
 
 
 
@@ -1305,6 +1383,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../formats/" class="md-footer__link md-footer__link--prev" aria-label="Previous: File Formats">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                File Formats
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../python_deps/" class="md-footer__link md-footer__link--next" aria-label="Next: Python Dependencies">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Python Dependencies
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1330,10 +1448,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

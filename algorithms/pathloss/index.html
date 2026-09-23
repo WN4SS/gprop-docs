@@ -6,24 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
       
+        <link rel="canonical" href="https://gprop-docs.vercel.app/algorithms/pathloss/">
+      
       
         <link rel="prev" href="../diffraction/">
       
       
-        <link rel="next" href="../../contributing/">
+        <link rel="next" href="../ransac/">
       
       
         
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../pipeline/overview/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -398,26 +285,28 @@
     
     
       
-      
+        
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Step-by-step guide
   
 
     
@@ -433,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Step-by-step guide
   
 
           </label>
@@ -446,14 +335,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pipeline/overview/" class="md-nav__link">
+      <a href="../../reference/build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    0. Install & build
   
 
     
@@ -481,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    1. Plan your area
   
 
     
@@ -509,7 +398,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
+    2. Download data
   
 
     
@@ -537,7 +426,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 3 — Preproc
+    3. Build the digital twin
   
 
     
@@ -565,7 +454,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 4 — Prop
+    4. Run the simulation
   
 
     
@@ -593,7 +482,7 @@
   <span class="md-ellipsis">
     
   
-    Stage 5 — Heatmap
+    5. Export your coverage map
   
 
     
@@ -629,25 +518,178 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipeline/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipeline/batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Batch coverage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -665,8 +707,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -739,34 +781,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -810,14 +824,13 @@
       
         
       
+        
+      
     
     
     
       
         
-        
-      
-      
         
       
     
@@ -826,10 +839,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -847,8 +860,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -953,60 +966,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#models" class="md-nav__link">
+  <a href="#current-active-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#free-space-path-loss-fspl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Free-Space Path Loss (FSPL)
+        Current active model
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#log-distance" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#free-space-path-loss" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Log-Distance
+        Free-space path loss
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#alpha-beta" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alpha-Beta
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#antenna-gain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Antenna gain
+        Alpha-beta
       
     </span>
   </a>
@@ -1014,10 +999,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#final-rss" class="md-nav__link">
+  <a href="#directional-antenna-gain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Final RSS
+        Directional antenna gain
       
     </span>
   </a>
@@ -1028,6 +1013,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1054,7 +1067,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1074,9 +1087,127 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-active-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current active model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-space-path-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free-space path loss
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alpha-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alpha-beta
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directional-antenna-gain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directional antenna gain
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../diffraction/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Algorithms
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1084,107 +1215,23 @@
 
 
 
-<h1 id="path-loss-models">Path Loss Models</h1>
-<p><code>prop</code> supports three base path loss models, selectable at compile time. All models are combined with antenna gain from the radiation pattern.</p>
-<hr />
-<h2 id="models">Models</h2>
-<h3 id="free-space-path-loss-fspl">Free-Space Path Loss (FSPL)</h3>
-<p>The theoretical baseline assuming no environmental clutter — only distance and frequency.</p>
-<p>$$L_{FSPL} = 20 \log_{10}\left(\frac{4\pi d f}{c}\right)$$</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>d</td>
-<td>3D distance from transmitter to receiver (metres)</td>
-</tr>
-<tr>
-<td>f</td>
-<td>Carrier frequency (Hz)</td>
-</tr>
-<tr>
-<td>c</td>
-<td>Speed of light (3×10⁸ m/s)</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="log-distance">Log-Distance</h3>
-<p>Extends FSPL with an empirical path loss exponent n to account for the environment.</p>
-<p>$$L = L_{FSPL}(1\text{m}) + 10n \log_{10}(d)$$</p>
-<table>
-<thead>
-<tr>
-<th>n value</th>
-<th>Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2.0</td>
-<td>Free space</td>
-</tr>
-<tr>
-<td>2.5–3.0</td>
-<td>Suburban</td>
-</tr>
-<tr>
-<td>3.0–4.0</td>
-<td>Urban</td>
-</tr>
-<tr>
-<td>4.0–5.0</td>
-<td>Dense urban / indoor</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="alpha-beta">Alpha-Beta</h3>
-<p>A frequency-aware empirical model used in 5G planning.</p>
-<p>$$L = 10\alpha \log_{10}(d) + \beta + 10 \log_{10}\left(\frac{f}{1 \text{ GHz}}\right)$$</p>
-<hr />
-<h2 id="antenna-gain">Antenna gain</h2>
-<p>The effective antenna gain for any receiver position combines the boresight gain with horizontal and vertical pattern attenuation:</p>
-<p>$$G_{effective} = G_{max} + H[\theta] + V[\phi]$$</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>G_max</td>
-<td>Boresight gain from topology.csv (dBi)</td>
-</tr>
-<tr>
-<td>H[θ]</td>
-<td>Horizontal pattern attenuation at relative azimuth θ (dB, ≤ 0)</td>
-</tr>
-<tr>
-<td>V[φ]</td>
-<td>Vertical pattern attenuation at relative downtilt φ (dB, ≤ 0)</td>
-</tr>
-<tr>
-<td>θ</td>
-<td>atan2(Δx, Δy) − antenna azimuth, rounded to nearest degree</td>
-</tr>
-<tr>
-<td>φ</td>
-<td>−atan2(Δz, horizontal_distance) + antenna downtilt, rounded to nearest degree</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="final-rss">Final RSS</h2>
-<p>$$RSS = P_{tx} - L_{base} - L_{diffraction}$$</p>
-<p>All in dBm / dB. The best RSS across all transmitters is written to <code>heatmap.csv</code>.</p>
+<h1 id="path-loss-models">Path-Loss Models</h1>
+<p>The propagation engine implements three base models. Model choice is currently made in <code>prop/prop.c</code>, not through a CLI option.</p>
+<h2 id="current-active-model">Current active model</h2>
+<p>The default heatmap uses log-distance loss with <code>n = 5</code>:</p>
+<p>$$L = L_{FSPL}(1\,m) + 10n\log_{10}(d)$$</p>
+<p>The active link budget is:</p>
+<p>$$RSS = P_{tx} - L_{log-distance} + G_{directional}$$</p>
+<p>Diffraction is set to zero in this path. The strongest sector value is retained for each receiver cell.</p>
+<h2 id="free-space-path-loss">Free-space path loss</h2>
+<p>$$L_{FSPL} = 20\log_{10}\left(\frac{4\pi d f}{c}\right)$$</p>
+<p>Distance is three-dimensional in metres and frequency is in hertz.</p>
+<h2 id="alpha-beta">Alpha-beta</h2>
+<p>$$L = 10\alpha\log_{10}(d) + \beta + 10\log_{10}\left(\frac{f}{1\,GHz}\right)$$</p>
+<p>FSPL and alpha-beta are implemented and tested but are not selected by the current default heatmap loop.</p>
+<h2 id="directional-antenna-gain">Directional antenna gain</h2>
+<p>$$G = G_{max} + H[\theta] + V[\phi]$$</p>
+<p>The horizontal and vertical attenuation tables come from the 541-line pattern file. The engine combines them with sector azimuth, downtilt, and boresight gain from <code>topology.csv</code>.</p>
 
 
 
@@ -1215,6 +1262,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../diffraction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Knife-Edge Diffraction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Knife-Edge Diffraction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ransac/" class="md-footer__link md-footer__link--next" aria-label="Next: RANSAC Segmentation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                RANSAC Segmentation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1240,10 +1327,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

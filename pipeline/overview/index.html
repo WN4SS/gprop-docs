@@ -6,32 +6,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="3D Urban RF Propagation Simulator — full pipeline reference">
+        <meta name="description" content="Urban RF propagation simulator — current workflow and technical reference">
       
       
         <meta name="author" content="Alvi Rashid">
       
       
+        <link rel="canonical" href="https://gprop-docs.vercel.app/pipeline/overview/">
       
-        <link rel="prev" href="../..">
+      
+        <link rel="prev" href="../heatmap/">
       
       
-        <link rel="next" href="../gui/">
+        <link rel="next" href="../batch/">
       
       
         
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Overview - gprop Documentation</title>
+        <title>Pipeline overview - gprop Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -52,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../assets/custom.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +94,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="gprop Documentation" class="md-header__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -111,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Pipeline overview
             
           </span>
         </div>
@@ -201,121 +207,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Pipeline
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/formats/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../algorithms/diffraction/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Algorithms
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../contributing/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Contributing
-
-      </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -329,12 +220,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="gprop Documentation" class="md-nav__button md-logo" aria-label="gprop Documentation" data-md-component="logo">
       
@@ -360,7 +247,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Start here
   
 
     
@@ -369,6 +256,249 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Step-by-step guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Step-by-step guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0. Install & build
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Plan your area
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Download data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preproc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Build the digital twin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Run the simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heatmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Export your coverage map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -390,20 +520,11 @@
       
         
       
-        
-      
-        
-      
-        
-      
     
     
     
       
         
-        
-      
-      
         
       
     
@@ -412,17 +533,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Pipeline
+    Workflows
   
 
     
@@ -433,12 +554,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pipeline
+    Workflows
   
 
           </label>
@@ -467,7 +588,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Pipeline overview
   
 
     
@@ -485,7 +606,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Pipeline overview
   
 
     
@@ -511,10 +632,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#full-data-flow" class="md-nav__link">
+  <a href="#stage-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full data flow
+        Stage summary
       
     </span>
   </a>
@@ -522,10 +643,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-summary" class="md-nav__link">
+  <a href="#two-supported-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        File summary
+        Two supported workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two supported workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-digital-twin-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full digital-twin workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preliminary-deployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preliminary deployment workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate systems
       
     </span>
   </a>
@@ -548,14 +708,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../gui/" class="md-nav__link">
+      <a href="../batch/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Stage 1 — GUI
+    Batch coverage
   
 
     
@@ -576,98 +736,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../fetch/" class="md-nav__link">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Stage 2 — Fetch
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../preproc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Stage 3 — Preproc
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prop/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Stage 4 — Prop
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../heatmap/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Stage 5 — Heatmap
+    Troubleshooting
   
 
     
@@ -703,25 +779,25 @@
       
         
       
-        
-      
     
     
     
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -739,8 +815,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -813,34 +889,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/build/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build System
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../reference/python_deps/" class="md-nav__link">
         
   
@@ -882,23 +930,27 @@
       
         
       
-    
-    
-    
-      
-      
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -916,8 +968,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -983,6 +1035,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithms/ransac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RANSAC Segmentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1004,7 +1084,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Contributors & contributing
   
 
     
@@ -1024,9 +1104,144 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stage-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-supported-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two supported workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two supported workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-digital-twin-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full digital-twin workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preliminary-deployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preliminary deployment workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Start here
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Workflows
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -1035,123 +1250,92 @@
 
 
 <h1 id="pipeline-overview">Pipeline Overview</h1>
-<p>gprop is organised as five sequential stages. Each stage produces files consumed by the next. Stages 3 and 4 (preproc and prop) are pre-compiled C binaries; the rest are Python scripts.</p>
-<hr />
-<h2 id="full-data-flow">Full data flow</h2>
+<p>gprop can be driven from the native desktop planner or stage by stage from the command line.</p>
 <pre class="mermaid"><code>flowchart TD
-    subgraph stage1["Stage 1 — gui.py"]
-        G1[Draw AoI polygon]
-        G2[Place antenna markers]
-        G3[Set azimuth / freq / power / gain / height]
-        G1 --&gt; G2 --&gt; G3
-    end
-
-    subgraph stage2["Stage 2 — fetch.py"]
-        F1[Query USGS 3DEP LiDAR]
-        F2[Query OSM Overpass API]
-        F3[Generate bare-earth DSM]
-        F1 --&gt; F3
-        F2 --&gt; F3
-    end
-
-    subgraph stage3["Stage 3 — preproc (C binary)"]
-        P1[Read LAZ point cloud]
-        P2[Assign points to building footprints]
-        P3[RANSAC plane segmentation]
-        P4[Euclidean tree clustering]
-        P1 --&gt; P2 --&gt; P3
-        P1 --&gt; P2 --&gt; P4
-    end
-
-    subgraph stage4["Stage 4 — prop (C binary)"]
-        R1[Load digital twin into tile grid]
-        R2[For each 5m grid point inside AoI]
-        R3[Compute diffraction loss along LOS]
-        R4[Compute FSPL and antenna gain]
-        R5[Write best RSS across all Tx]
-        R1 --&gt; R2 --&gt; R3 --&gt; R4 --&gt; R5
-    end
-
-    subgraph stage5["Stage 5 — 3DHeatMap.py"]
-        H1[Read heatmap.csv]
-        H2[Gaussian smoothing]
-        H3[Render on OSM basemap]
-        H4[Export KML/KMZ]
-        H1 --&gt; H2 --&gt; H3 --&gt; H4
-    end
-
-    stage1 --&gt;|"aoi.wkt, topology.csv"| stage2
-    stage2 --&gt;|"lpc.laz, buildings.wkt, ground.tif"| stage3
-    stage3 --&gt;|"buildings.csv, trees.csv"| stage4
-    stage4 --&gt;|"heatmap.csv"| stage5</code></pre>
-<hr />
-<h2 id="file-summary">File summary</h2>
+    G[SDL3 desktop planner] --&gt; A[aoi.wkt]
+    G --&gt; T[topology.csv]
+    A --&gt; F[fetch.py]
+    F --&gt; L[lpc.laz]
+    F --&gt; W[buildings.wkt]
+    F --&gt; D[ground.tif]
+    L --&gt; P[preproc]
+    W --&gt; P
+    D --&gt; P
+    P --&gt; B[buildings.csv]
+    P --&gt; R[trees.csv]
+    A --&gt; S[prop]
+    T --&gt; S
+    B --&gt; S
+    R --&gt; S
+    D --&gt; S
+    PAT[antenna.pat] --&gt; S
+    S --&gt; H[heatmap.csv]
+    H --&gt; V[heatmap.py]
+    T --&gt; V
+    V --&gt; K[HeatmapN.kmz]</code></pre>
+<h2 id="stage-summary">Stage summary</h2>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Producer</th>
-<th>Consumer</th>
-<th>Description</th>
+<th>Stage</th>
+<th>Component</th>
+<th>Current behavior</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>aoi.wkt</code></td>
-<td>gui.py</td>
-<td>prop, fetch.py</td>
-<td>Area of interest polygon in EPSG:4326</td>
+<td>Plan</td>
+<td><code>bin/gprop</code></td>
+<td>Native SDL3 map, AOI drawing, sector placement, twin selection, simulation launch</td>
 </tr>
 <tr>
-<td><code>topology.csv</code></td>
-<td>gui.py</td>
-<td>prop</td>
-<td>Antenna parameters, one per line</td>
+<td>Acquire</td>
+<td><code>bin/fetch.py</code></td>
+<td>OSM footprints plus USGS 3DEP EPT LiDAR; supports full and <code>--ground-only</code> modes</td>
 </tr>
 <tr>
-<td><code>lpc.laz</code></td>
-<td>fetch.py</td>
-<td>preproc</td>
-<td>LiDAR point cloud, non-ground filtered</td>
+<td>Preprocess</td>
+<td><code>bin/preproc</code></td>
+<td>Uses a GEOS spatial index for footprint assignment, RANSAC roof segmentation, and spatial-grid vegetation clustering</td>
 </tr>
 <tr>
-<td><code>buildings.wkt</code></td>
-<td>fetch.py</td>
-<td>preproc</td>
-<td>OSM footprints, one WKT polygon per line</td>
+<td>Propagate</td>
+<td><code>bin/prop</code></td>
+<td>Loads terrain and clutter, supports Polygon/MultiPolygon AOIs, and writes a 5 m best-server RSS grid</td>
 </tr>
 <tr>
-<td><code>ground.tif</code></td>
-<td>fetch.py</td>
-<td>preproc, prop</td>
-<td>1m bare-earth DSM GeoTIFF</td>
-</tr>
-<tr>
-<td><code>buildings.csv</code></td>
-<td>preproc</td>
-<td>prop</td>
-<td>Roof plane equations and footprints</td>
-</tr>
-<tr>
-<td><code>trees.csv</code></td>
-<td>preproc</td>
-<td>prop</td>
-<td>Tree cluster footprints and heights</td>
-</tr>
-<tr>
-<td><code>heatmap.csv</code></td>
-<td>prop</td>
-<td>3DHeatMap.py</td>
-<td>X, Y, RSS per 5m grid point</td>
-</tr>
-<tr>
-<td><code>outputs/*.kmz</code></td>
-<td>3DHeatMap.py</td>
-<td>Google Earth</td>
-<td>Final coverage heatmap overlay</td>
+<td>Visualize</td>
+<td><code>bin/heatmap.py</code></td>
+<td>Smooths headerless RSS samples and writes an auto-numbered KMZ; can also render a labeled street-map preview</td>
 </tr>
 </tbody>
 </table>
+<h2 id="two-supported-workflows">Two supported workflows</h2>
+<h3 id="full-digital-twin-workflow">Full digital-twin workflow</h3>
+<p>Fetch LiDAR and buildings, preprocess roof and tree geometry, and run <code>prop</code> with the resulting clutter files. This is the path required when re-enabling diffraction or reflection.</p>
+<h3 id="preliminary-deployment-workflow">Preliminary deployment workflow</h3>
+<p><code>run_temporary_coverage.py</code> runs all directories under <code>deployments/</code> using analytic 65° or 33° patterns, empty clutter files, and a flat temporary ground raster. It keeps samples at or above −110 dBm, assigns them to the nearest site, buffers their convex hulls by 25 m, and writes updated deployment AOIs and JSON summaries. <code>generate_map_previews.py</code> creates site-level street-map PNGs.</p>
+<p>The repository currently contains eight deployment directories: Broome County, Canandaigua, Elmira/Chemung, Elmira Housing Authority, Fruitbelt, Geneva City Hall, Geneva Housing, and Webster.</p>
+<h2 id="coordinate-systems">Coordinate systems</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>CRS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AOI and transmitter input</td>
+<td>EPSG:4326</td>
+</tr>
+<tr>
+<td>LiDAR, footprints, terrain, twin geometry, and heatmap samples</td>
+<td>EPSG:3857</td>
+</tr>
+</tbody>
+</table>
+<p><code>prop</code> reprojects the complete AOI geometry, preserving MultiPolygon parts and interior rings.</p>
 
 
 
@@ -1182,6 +1366,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../heatmap/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Export your coverage map">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Export your coverage map
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../batch/" class="md-footer__link md-footer__link--next" aria-label="Next: Batch coverage">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Batch coverage
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1207,10 +1431,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.footer", "navigation.tracking", "navigation.top", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

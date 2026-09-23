@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #101b26; color: #dfe8ee; font-family: system-ui, sans-serif; }
+main { max-width: 500px; margin: 8vh auto; padding: 24px; }
+h1 { font-size: 32px; letter-spacing: -.04em; }
+p { line-height: 1.6; color: #acbfcc; }
+a { color: #75ddd1; }
+.label { color: #75ddd1; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.login { margin-top: 24px; }
+button { cursor: pointer; padding: 10px 16px; border-radius: 6px; }
