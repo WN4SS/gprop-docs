@@ -29,25 +29,16 @@ mkdocs build --strict
 ```
 
 The output is in `site/`. A Markdown edit alone does not update the deployed site.
-Copy the generated contents of `site/` into the repository root before deploying,
-preserving the application files:
+Copy the generated documentation into the repository root, then deploy:
 
 ```sh
 cp -R site/. .
-npm ci
-npm test
 npm run build
-npx vercel deploy
+npx vercel deploy --prod
 ```
 
-Review a preview before promoting it to production. Do not use `rsync --delete`
-against the repository root: that would remove the authentication application.
-When removing a documentation page, also remove its corresponding generated HTML.
+The build publishes only the generated documentation. When removing a page, also
+remove its corresponding generated HTML. Do not use `rsync --delete` against the
+repository root, as it would remove the editable sources and configuration.
 
-## Access test
-
-The Next.js application contains the invite-only login preview. Clerk credentials
-come from Vercel environment variables and must never be committed. See
-[AUTH-SETUP.md](AUTH-SETUP.md) for its current scope and deployment details.
-The public production site remains https://gprop-docs.vercel.app/ until the private
-version is explicitly promoted.
+The documentation is public at https://gprop-docs.vercel.app/ and requires no login.
