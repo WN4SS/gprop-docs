@@ -57,7 +57,7 @@ The original contributor page reported a 4.3× speedup at 10 cores (18.4 s → 4
 4. Update the relevant documentation page when changing a command, file format, or default model.
 5. Submit a pull request to the upstream `testing` branch, following the repository README.
 
-[Simulator repository](https://github.com/WN4SS/gprop) · [Documentation repository](https://github.com/rezhaq05/gprop-docs)
+[Simulator repository](https://github.com/WN4SS/gprop) · [Documentation repository](https://github.com/WN4SS/gprop-docs)
 
 ## Coding conventions
 
